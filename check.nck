@@ -1,0 +1,8 @@
+let
+
+all = import "all.ncl"
+
+in
+
+std.array.reduce_left (&) (std.record.values (std.record.map (fun r v => std.record.from_array ((std.array.map (fun x => {field = "%{x.doi}", value = (x)})) v)) all))
+
